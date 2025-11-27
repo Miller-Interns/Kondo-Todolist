@@ -40,8 +40,9 @@ function add() {
         v-model="title"
         @blur="saveTitle"
       />
-      <button class="delete-btn" @click="remove"> <Trash2 :size="18" class="delete-btn-text" />Delete</button>
-        
+      <button class="delete-btn" @click="remove" aria-label="Delete category" title="Delete category">
+        <Trash2 :size="16" /> Delete
+      </button>
     </div>
 
     <!-- Add New Item -->
@@ -69,20 +70,27 @@ function add() {
 
 <style scoped>
 .category-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  padding: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
-  border: 1px solid #f0f0f0;
+  max-width: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 0;
 }
 
 .category-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.8);
+  z-index: 5;
 }
 
 /* Header */
@@ -90,15 +98,18 @@ function add() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
   gap: 12px;
 }
 
+
 .title-input {
-  flex: 1;
-  font-size: 20px;
+  flex: 1 1 auto;
+  min-width: 0; /* allow to shrink inside flex */
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
+  /* ensure the input content doesn't sit under the absolute delete button */
   padding: 8px 12px;
+  padding-right: 72px;
   border: none;
   border-bottom: 2px solid #e0e0e0;
   outline: none;
@@ -116,39 +127,39 @@ function add() {
 }
 
 .delete-btn {
+  position: static; /* remove absolute positioning */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
   background: #ff6b6b;
   border: none;
   color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s;
-  white-space: nowrap;
+  font-size: 13px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
+
 
 .delete-btn:hover {
   background: #ff5252;
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(255,82,82,0.18);
 }
 
 .delete-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.96);
 }
 
-.delete-btn-text {
-  display: inline-flex;
-}
 
 /* Add Item Section */
 .add-item {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .item-input {
@@ -156,9 +167,12 @@ function add() {
   padding: 10px 12px;
   border-radius: 6px;
   border: 1.5px solid #e0e0e0;
-  font-size: 14px;
-  outline: none;
-  background: #fafafa;
+  /* ensure the input content doesn't sit under the absolute delete button */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  padding-right: calc(var(--delete-offset) + 8px);
+  transition: font-size 0.12s ease, padding 0.12s ease;
   transition: all 0.2s;
 }
 
@@ -180,8 +194,8 @@ function add() {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 600;
-  transition: all 0.2s;
+  min-width: 56px;
+  padding: 6px 10px;
 }
 
 .add-btn:hover {
@@ -219,5 +233,42 @@ function add() {
 
 .items::-webkit-scrollbar-thumb:hover {
   background: #999;
+}
+
+@media (max-width: 900px) {
+  .header {
+    --delete-offset: 56px;
+    gap: 8px;
+  }
+
+  .title-input {
+    font-size: 16px;
+    padding: 6px 8px;
+  }
+
+  .delete-btn {
+    min-width: 44px;
+    padding: 6px 8px;
+    font-size: 12px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header {
+    --delete-offset: 48px;
+  }
+
+  .title-input {
+    font-size: 15px;
+    padding: 6px 6px;
+  }
+
+  .delete-btn {
+    min-width: 40px;
+    padding: 6px 6px;
+    font-size: 12px;
+  }
 }
 </style>

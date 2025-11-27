@@ -98,9 +98,11 @@ router.push('/')
   justify-content: flex-start;
   min-height: 100vh;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #b8d8f0 0%, #d9c9e8 25%, #e8c8d8 50%, #c8e0ed 75%, #c0e5f0 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
 }
-
+ 
 .header {
   font-size: 48px;
   font-weight: bold;
@@ -174,17 +176,43 @@ router.push('/')
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 24px;
+  /* better breathing room and responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  column-gap: 40px;
+  row-gap: 40px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin-top: 20px;
+  padding: 0 28px;
+  align-items: start; /* keep cards top-aligned to avoid overlap */
+  justify-items: stretch; /* make cards fill their grid cell */
+  grid-auto-rows: auto;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    column-gap: 36px;
+    row-gap: 36px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    column-gap: 28px;
+    row-gap: 28px;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 0 10px;
   }
 }
 

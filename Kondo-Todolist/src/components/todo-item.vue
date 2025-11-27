@@ -21,7 +21,7 @@
     </template>
 
     <!-- Edit / Save / Cancel buttons -->
-    <button v-if="!editing" class="edit-btn" @click="startEdit"><Pencil :size="18" /></button>
+    <button v-if="!editing" class="edit-btn" @click="startEdit"><Pencil :size="18" /> &nbsp; Edit</button>
     <div v-else class="edit-actions">
       <button class="save-btn" @click="saveEdit">Save</button>
       <button class="cancel-btn" @click="cancelEdit">Cancel</button>
