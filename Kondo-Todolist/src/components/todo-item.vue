@@ -7,27 +7,34 @@
 
     <!-- Text or edit input -->
     <template v-if="editing">
-      <input
-        class="edit-input"
-        v-model="editText"
-        @keyup.enter="saveEdit"
-        @keyup.esc="cancelEdit"
-        @blur="saveEdit"
-        ref="editInput"
-      />
+      <input class="edit-input" 
+             v-model="editText" 
+             @keyup.enter="saveEdit" 
+             @keyup.esc="cancelEdit" 
+             @blur="saveEdit"
+             ref="editInput" />
     </template>
     <template v-else>
       <span class="text">{{ item.text }}</span>
     </template>
 
     <!-- Edit / Save / Cancel buttons -->
-    <button v-if="!editing" class="edit-btn" @click="startEdit"><Pencil :size="18" /> &nbsp; Edit</button>
+    <button v-if="!editing" 
+            class="edit-btn" 
+            @click="startEdit">
+      <Pencil :size="18" /> &nbsp; Edit
+    </button>
     <div v-else class="edit-actions">
-      <button class="save-btn" @click="saveEdit">Save</button>
-      <button class="cancel-btn" @click="cancelEdit">Cancel</button>
+      <button class="save-btn" 
+              @click="saveEdit">Save</button>
+      <button class="cancel-btn" 
+              @click="cancelEdit">Cancel</button>
     </div>
 
-    <button class="delete-btn" @click="remove"><Trash2 :size="18" /></button>
+    <button class="delete-btn" 
+            @click="remove">
+      <Trash2 :size="18" />
+    </button>
   </div>
 </template>
 
@@ -35,7 +42,7 @@
 <script setup lang="ts">
 import type { TodoItem } from '../types/TodoItem'
 import { useTodo } from '../composables/use-todo'
-import { Trash2,Pencil } from "lucide-vue-next"
+import { Trash2, Pencil } from "lucide-vue-next"
 import { ref, nextTick } from 'vue'
 const props = defineProps<{ item: TodoItem; categoryId: string }>()
 
@@ -138,7 +145,7 @@ function cancelEdit() {
   transition: all 0.3s;
 }
 
-.check-wrapper input:checked + .checkmark {
+.check-wrapper input:checked+.checkmark {
   background-color: #4caf50;
   border-color: #4caf50;
 }
@@ -150,7 +157,7 @@ function cancelEdit() {
 }
 
 /* Checkmark tick */
-.check-wrapper input:checked + .checkmark::after {
+.check-wrapper input:checked+.checkmark::after {
   display: block;
   left: 6px;
   top: 2px;
@@ -244,6 +251,6 @@ function cancelEdit() {
 }
 
 .cancel-btn:hover {
-  background: rgba(0,0,0,0.03);
+  background: rgba(0, 0, 0, 0.03);
 }
 </style>

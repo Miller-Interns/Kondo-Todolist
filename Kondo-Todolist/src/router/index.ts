@@ -4,14 +4,14 @@ import TodoApp from '../pages/todo-app.vue'
 
 
 const routes = [
-{ path: '/', name: 'Welcome', component: Welcome },
-{ path: '/app', name: 'App', component: TodoApp }
+    { path: '/', name: 'Welcome', component: Welcome },
+    { path: '/app', name: 'App', component: TodoApp }
 ]
 
 
 const router = createRouter({
-history: createWebHistory(),
-routes
+    history: createWebHistory(),
+    routes
 })
 
 

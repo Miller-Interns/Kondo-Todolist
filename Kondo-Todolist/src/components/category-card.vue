@@ -1,5 +1,3 @@
-
-
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { TodoCategory } from '../types/TodoCategory';
@@ -35,11 +33,7 @@ function add() {
   <div class="category-card">
     <!-- Category Header -->
     <div class="header">
-      <input
-        class="title-input"
-        v-model="title"
-        @blur="saveTitle"
-      />
+      <input class="title-input" v-model="title" @blur="saveTitle" />
       <button class="delete-btn" @click="remove" aria-label="Delete category" title="Delete category">
         <Trash2 :size="16" /> Delete
       </button>
@@ -47,23 +41,13 @@ function add() {
 
     <!-- Add New Item -->
     <div class="add-item">
-      <input
-        class="item-input"
-        v-model="newItem"
-        @keyup.enter="add"
-        placeholder="Add new item..."
-      />
+      <input class="item-input" v-model="newItem" @keyup.enter="add" placeholder="Add new item..." />
       <button class="add-btn" @click="add">Add</button>
     </div>
 
     <!-- Items List -->
     <div class="items">
-      <todo-item
-        v-for="i in category.items"
-        :key="i.id"
-        :item="i"
-        :category-id="category.id"
-      />
+      <todo-item v-for="i in category.items" :key="i.id" :item="i" :category-id="category.id" />
     </div>
   </div>
 </template>
@@ -104,7 +88,8 @@ function add() {
 
 .title-input {
   flex: 1 1 auto;
-  min-width: 0; /* allow to shrink inside flex */
+  min-width: 0;
+  /* allow to shrink inside flex */
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
   /* ensure the input content doesn't sit under the absolute delete button */
@@ -127,7 +112,8 @@ function add() {
 }
 
 .delete-btn {
-  position: static; /* remove absolute positioning */
+  position: static;
+  /* remove absolute positioning */
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -146,7 +132,7 @@ function add() {
 .delete-btn:hover {
   background: #ff5252;
   transform: scale(1.06);
-  box-shadow: 0 6px 18px rgba(255,82,82,0.18);
+  box-shadow: 0 6px 18px rgba(255, 82, 82, 0.18);
 }
 
 .delete-btn:active {

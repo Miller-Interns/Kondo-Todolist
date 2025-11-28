@@ -1,8 +1,8 @@
 <template>
   <div class="bg">
-    <div class="center">
+    <div class="card">
       <h1>Kian A. Kondo</h1>
-      <p>Exercise Started: November 23, 2025</p>
+      <p class="meta">Exercise Started: November 23, 2025</p>
       <button @click="go" class="todo">Go to App</button>
     </div>
   </div>
@@ -13,81 +13,100 @@
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
-
-
 function go() {
   router.push('/app')
 }
 </script>
-
+.
+<style>
+/* global reset so the page background touches the viewport edges */
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>
 
 <style scoped>
+/* page background - center everything */
 .bg {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.center {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding: 20px;
-
+  padding: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #d6e9fb 0%, #e7dff6 100%);
 }
 
+/* card that holds the content */
+.card {
+  width: 100%;
+  max-width: 640px;
+  padding: 36px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  text-align: center;
+  box-sizing: border-box;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* title */
 h1 {
-  font-size: 3.5rem;
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  color: #333;
-  margin-bottom: 12px;
-  letter-spacing: -1px;
+  color: #222;
+  letter-spacing: -0.6px;
 }
 
-p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 40px;
+/* meta / description */
+.meta {
+  margin: 0 0 26px;
+  color: #5f6b75;
   font-weight: 500;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.4;
 }
 
+/* primary button */
 .todo {
-  margin-top: 20px;
-  padding: 14px 32px;
-  font-size: 16px;
+  margin-top: 6px;
+  padding: 12px 28px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   background: #42b883;
   color: white;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(66, 184, 131, 0.2);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 6px 18px rgba(66, 184, 131, 0.18);
 }
 
 .todo:hover {
-  background: #36996f;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(66, 184, 131, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(66, 184, 131, 0.22);
 }
 
 .todo:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(66, 184, 131, 0.2);
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(66, 184, 131, 0.16);
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  p {
-    font-size: 1rem;
+/* responsive tweaks */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .todo {
-    padding: 12px 28px;
-    font-size: 15px;
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
   }
 }
 </style>

@@ -2,7 +2,7 @@ import type { TodoItem } from './TodoItem.ts'
 
 
 export interface TodoCategory {
-id: string
-title: string
-items: TodoItem[]
+    id: string
+    title: string
+    items: TodoItem[]
 }

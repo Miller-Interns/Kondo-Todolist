@@ -26,21 +26,19 @@ function homePage() {
 </script>
 <template>
   <div class="welcome-navigation">
-      <button @click="homePage">
+    <button @click="homePage">
       <Home :size="18" /> Homepage
-    </button></div>
+    </button>
+  </div>
   <div class="app-container">
     <h2 class="header">TODO Categories</h2>
     <h3 class="description">Create your todo list and add the tasks you want to complete. <br />
       Click the checkbox when a task is done, click the pencil icon to edit it,<br />
       and click trash button if you want to remove the task.</h3>
     <div class="add-category">
-      <input v-model="newCat" placeholder="Enter category name..." 
-             @keyup.enter="createCategory" 
-             class="add-input" />
+      <input v-model="newCat" placeholder="Enter category name..." @keyup.enter="createCategory" class="add-input" />
 
-      <button class="add-btn" 
-              @click="createCategory">
+      <button class="add-btn" @click="createCategory">
         <Plus :size="18" /> Add
       </button>
     </div>
