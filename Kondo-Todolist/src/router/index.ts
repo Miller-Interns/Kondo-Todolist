@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Welcome from '../pages/welcome.vue'
-import TodoApp from '../pages/todo-app.vue'
+import Welcome from '../views/welcome.vue'
+import TodoApp from '../views/todo-app.vue'
 
 
 const routes = [
