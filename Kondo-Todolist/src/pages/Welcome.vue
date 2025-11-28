@@ -36,7 +36,7 @@ body {
   justify-content: center;
   padding: 24px;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #52a3ee 0%, #a884eb 100%);
+  background: linear-gradient(135deg, #acbe68 0%, #65b662 100%);
 }
 
 /* card that holds the content */
@@ -45,7 +45,7 @@ body {
   max-width: 640px;
   padding: 36px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #bfddfa 0%, #e7dff6 100%);
+  background: linear-gradient(135deg, #e2eeb5 0%, #b6f7b3 100%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   text-align: center;

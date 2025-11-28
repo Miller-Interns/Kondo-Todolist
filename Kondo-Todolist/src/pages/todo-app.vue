@@ -91,7 +91,7 @@ function homePage() {
   justify-content: flex-start;
   min-height: 100vh;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #b8d8f0 0%, #d9c9e8 25%, #e8c8d8 50%, #c8e0ed 75%, #c0e5f0 100%);
+   background: linear-gradient(135deg, #e1f0ab 0%, #96f192 100%);
   background-size: 400% 400%;
   background-attachment: fixed;
 }
