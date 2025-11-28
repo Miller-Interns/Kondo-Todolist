@@ -3,7 +3,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import CategoryCard from '../components/category-card.vue'
-import { useTodo } from '../composables/useTodo'
+import { useTodo } from '../composables/use-todo'
 import { Plus,Home } from "lucide-vue-next"
 import { useRouter } from 'vue-router'
 const router = useRouter()

@@ -1,7 +1,7 @@
 <template>
 <div class="center">
 <h1>Kian A. Kondo</h1>
-<p>Started: November 23, 2025</p>
+<p>Exercise Started: November 23, 2025</p>
 <button @click="go" class="todo">Go to App</button>
 </div>
 </template>

@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import type { TodoItem } from '../types/TodoItem'
-import { useTodo } from '../composables/useTodo'
+import { useTodo } from '../composables/use-todo'
 import { Trash2,Pencil } from "lucide-vue-next"
 import { ref, nextTick } from 'vue'
 const props = defineProps<{ item: TodoItem; categoryId: string }>()
