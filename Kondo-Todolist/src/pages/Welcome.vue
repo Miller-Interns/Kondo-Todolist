@@ -36,7 +36,7 @@ body {
   justify-content: center;
   padding: 24px;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #d6e9fb 0%, #e7dff6 100%);
+  background: linear-gradient(135deg, #52a3ee 0%, #a884eb 100%);
 }
 
 /* card that holds the content */
@@ -45,12 +45,13 @@ body {
   max-width: 640px;
   padding: 36px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+  background: linear-gradient(135deg, #bfddfa 0%, #e7dff6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   text-align: center;
   box-sizing: border-box;
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* title */
