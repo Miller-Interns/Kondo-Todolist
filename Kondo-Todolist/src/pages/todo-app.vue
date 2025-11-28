@@ -1,10 +1,8 @@
-
-
 <script setup lang="ts">
 import { ref } from 'vue'
 import CategoryCard from '../components/category-card.vue'
 import { useTodo } from '../composables/use-todo'
-import { Plus,Home } from "lucide-vue-next"
+import { Plus, Home } from "lucide-vue-next"
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const todo = useTodo()
@@ -23,35 +21,32 @@ function onCategoryDeleted(id: string) {
   }
 }
 function homePage() {
-router.push('/')
+  router.push('/')
 }
 </script>
 <template>
-    <div class="welcome-navigation"><button @click="homePage"><Home :size="18" /> Homepage    </button></div>
+  <div class="welcome-navigation">
+      <button @click="homePage">
+      <Home :size="18" /> Homepage
+    </button></div>
   <div class="app-container">
     <h2 class="header">TODO Categories</h2>
-    <h3 class="description">Create your todo list and add the tasks you want to complete. <br/>
-    Click the checkbox when a task is done, click the pencil icon to edit it,<br/>
-             and click trash button if you want to remove the task.</h3>
+    <h3 class="description">Create your todo list and add the tasks you want to complete. <br />
+      Click the checkbox when a task is done, click the pencil icon to edit it,<br />
+      and click trash button if you want to remove the task.</h3>
     <div class="add-category">
-      <input 
-        v-model="newCat" 
-        placeholder="Enter category name..." 
-        @keyup.enter="createCategory" 
-        class="add-input"
-      />
-      <button class="add-btn" @click="createCategory">
+      <input v-model="newCat" placeholder="Enter category name..." 
+             @keyup.enter="createCategory" 
+             class="add-input" />
+
+      <button class="add-btn" 
+              @click="createCategory">
         <Plus :size="18" /> Add
       </button>
     </div>
 
     <div class="cards-container">
-      <category-card 
-        v-for="c in todo.categories" 
-        :key="c.id" 
-        :category="c"
-        @deleted="onCategoryDeleted"
-      />
+      <category-card v-for="c in todo.categories" :key="c.id" :category="c" @deleted="onCategoryDeleted" />
     </div>
   </div>
 </template>
@@ -102,12 +97,12 @@ router.push('/')
   background-size: 400% 400%;
   background-attachment: fixed;
 }
- 
+
 .header {
   font-size: 48px;
   font-weight: bold;
- font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-             Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
   margin-bottom: 40px;
   color: #333;
   text-align: center;
@@ -184,8 +179,10 @@ router.push('/')
   max-width: 1600px;
   margin-top: 20px;
   padding: 0 28px;
-  align-items: start; /* keep cards top-aligned to avoid overlap */
-  justify-items: stretch; /* make cards fill their grid cell */
+  align-items: start;
+  /* keep cards top-aligned to avoid overlap */
+  justify-items: stretch;
+  /* make cards fill their grid cell */
   grid-auto-rows: auto;
 }
 

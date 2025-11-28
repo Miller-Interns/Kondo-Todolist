@@ -1,9 +1,11 @@
 <template>
-<div class="center">
-<h1>Kian A. Kondo</h1>
-<p>Exercise Started: November 23, 2025</p>
-<button @click="go" class="todo">Go to App</button>
-</div>
+  <div class="bg">
+    <div class="center">
+      <h1>Kian A. Kondo</h1>
+      <p>Exercise Started: November 23, 2025</p>
+      <button @click="go" class="todo">Go to App</button>
+    </div>
+  </div>
 </template>
 
 
@@ -14,20 +16,24 @@ const router = useRouter()
 
 
 function go() {
-router.push('/app')
+  router.push('/app')
 }
 </script>
 
 
 <style scoped>
+.bg {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
 .center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   padding: 20px;
+
 }
 
 h1 {
