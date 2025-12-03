@@ -1,44 +1,3 @@
-<template>
-  <div class="item" :class="{ done: item.done }">
-    <label v-if="!editing" class="check-wrapper">
-      <input type="checkbox" :checked="item.done" @change="toggle" />
-      <span class="checkmark"></span>
-    </label>
-
-    <!-- Text or edit input -->
-    <template v-if="editing">
-      <input class="edit-input" 
-             v-model="editText" 
-             @keyup.enter="saveEdit" 
-             @keyup.esc="cancelEdit" 
-             @blur="saveEdit"
-             ref="editInput" />
-    </template>
-    <template v-else>
-      <span class="text">{{ item.text }}</span>
-    </template>
-
-    <!-- Edit / Save / Cancel buttons -->
-    <button v-if="!editing" 
-            class="edit-btn" 
-            @click="startEdit">
-      <Pencil :size="18" /> &nbsp; Edit
-    </button>
-    <div v-else class="edit-actions">
-      <button class="save-btn" 
-              @click="saveEdit">Save</button>
-      <button class="cancel-btn" 
-              @click="cancelEdit">Cancel</button>
-    </div>
-
-    <button class="delete-btn" 
-            @click="remove">
-      <Trash2 :size="18" />
-    </button>
-  </div>
-</template>
-
-
 <script setup lang="ts">
 import type { TodoItem } from '../types/TodoItem'
 import { useTodo } from '../composables/use-todo'
@@ -89,6 +48,50 @@ function cancelEdit() {
   editText.value = ''
 }
 </script>
+
+
+
+<template>
+  <div class="item" :class="{ done: item.done }">
+    <label v-if="!editing" class="check-wrapper">
+      <input type="checkbox" :checked="item.done" @change="toggle" />
+      <span class="checkmark"></span>
+    </label>
+
+    <!-- Text or edit input -->
+    <template v-if="editing">
+      <input class="edit-input" 
+             v-model="editText" 
+             @keyup.enter="saveEdit" 
+             @keyup.esc="cancelEdit" 
+             @blur="saveEdit"
+             ref="editInput" />
+    </template>
+    <template v-else>
+      <span class="text">{{ item.text }}</span>
+    </template>
+
+    <!-- Edit / Save / Cancel buttons -->
+    <button v-if="!editing" 
+            class="edit-btn" 
+            @click="startEdit">
+      <Pencil :size="18" /> &nbsp; Edit
+    </button>
+    <div v-else class="edit-actions">
+      <button class="save-btn" 
+              @click="saveEdit">Save</button>
+      <button class="cancel-btn" 
+              @click="cancelEdit">Cancel</button>
+    </div>
+
+    <button class="delete-btn" 
+            @click="remove">
+      <Trash2 :size="18" />
+    </button>
+  </div>
+</template>
+
+
 
 
 <style scoped>

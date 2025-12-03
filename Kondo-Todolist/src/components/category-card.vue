@@ -4,6 +4,7 @@ import type { TodoCategory } from '../types/TodoCategory';
 import TodoItem from './todo-item.vue'
 import { useTodo } from '../composables/use-todo'
 import { Trash2 } from "lucide-vue-next"
+
 const props = defineProps<{ category: TodoCategory }>()
 const emit = defineEmits<{ (e: 'deleted', id: TodoCategory['id']): void }>()
 const { deleteCategory, addItem } = useTodo()

@@ -1,3 +1,13 @@
+
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function go() {
+  router.push({name: 'todo-app'})
+}
+</script>
+
 <template>
   <div class="bg">
     <div class="card">
@@ -9,14 +19,6 @@
 </template>
 
 
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-const router = useRouter()
-
-function go() {
-  router.push('/app')
-}
-</script>
 .
 <style>
 /* global reset so the page background touches the viewport edges */

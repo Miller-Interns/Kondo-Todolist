@@ -5,7 +5,7 @@ import TodoApp from '../views/todo-app.vue'
 
 const routes = [
     { path: '/', name: 'Welcome', component: Welcome },
-    { path: '/app', name: 'App', component: TodoApp }
+    { path: '/todo-app', name: 'todo-app', component: TodoApp }
 ]
 
 

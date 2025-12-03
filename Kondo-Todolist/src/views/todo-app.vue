@@ -4,6 +4,7 @@ import CategoryCard from '../components/category-card.vue'
 import { useTodo } from '../composables/use-todo'
 import { Plus, Home } from "lucide-vue-next"
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 const todo = useTodo()
 const newCat = ref('')
@@ -24,6 +25,8 @@ function homePage() {
   router.push('/')
 }
 </script>
+
+
 <template>
   <div class="welcome-navigation">
     <button @click="homePage">
@@ -38,7 +41,7 @@ function homePage() {
     <div class="add-category">
       <input v-model="newCat" placeholder="Enter category name..." @keyup.enter="createCategory" class="add-input" />
 
-      <button class="add-btn" @click="createCategory">
+      <button class="add-btn" @click="createCategory" @keyup.enter="createCategory">
         <Plus :size="18" /> Add
       </button>
     </div>
