@@ -111,8 +111,8 @@ function homePage() {
 
 .description {
   max-width: 900px;
-  color: #666;
-  font-size: 1rem;
+  color: #292525;
+  font-size: 1.3rem;
   line-height: 1.7;
   margin: 0 0 30px;
   font-weight: 400;
