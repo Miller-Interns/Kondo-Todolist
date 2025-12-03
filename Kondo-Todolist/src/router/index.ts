@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Welcome from '../pages/welcome.vue'
+import Welcome from '../pages/Welcome.vue'
 import TodoApp from '../pages/todo-app.vue'
 
 
