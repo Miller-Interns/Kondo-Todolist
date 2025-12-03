@@ -22,7 +22,7 @@ function onCategoryDeleted(id: string) {
   }
 }
 function homePage() {
-  router.push({name: 'Welcome'})
+  router.push('/')
 }
 </script>
 
